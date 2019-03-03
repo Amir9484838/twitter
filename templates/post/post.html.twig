@@ -1,0 +1,23 @@
+{%  extends 'base.html.twig' %}
+
+{% block title  %}Twitter V2.0!{%  endblock %}
+
+{%  block body %}
+
+
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ post.title }}</h2>
+        <p class="blog-post-meta">
+            {{ post.createdAt|date("d.m.y h:i:s", "Europe/Moscow") }}
+            |
+            <a href = "{{ path("user", {"id": post.author.id}) }}">
+                {{ post.author.username }}</a>
+        </p>
+        {{ post.text }}
+
+    </div>
+
+
+
+
+{% endblock %}

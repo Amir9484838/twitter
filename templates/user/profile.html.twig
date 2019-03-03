@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% for post in posts %}
+
+{% endfor %}
+
+{% block body %}
+    <br>
+    <h3>Profile of {{ user.username }}</h3>
+    <br>
+    {% for post in posts %}
+        <div class="blog-post">
+            <h2 class="blog-post-title">{{ post.title }}</h2>
+            <p class="blog-post-meta">
+                {{ post.createdAt|date("d.m.y h:i:s", "Europe/Moscow") }}
+                |
+                {{ post.author.username }}
+            </p>
+            {{ post.text }}
+            <a href="{{ path("post", {"id":post.id}) }}">View more content</a>
+
+        </div>
+
+    {% endfor %}
+
+
+{% endblock %}
